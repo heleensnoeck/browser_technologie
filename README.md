@@ -34,6 +34,7 @@ Request a smaller image on a smaller screen
 	  </g>
 ```
 **To svg + title**
+```
 <div id="rain">
 	<svg 
 	  fill="#8ba892"  
