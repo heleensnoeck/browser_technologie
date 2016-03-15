@@ -69,6 +69,8 @@ Request a smaller image on a smaller screen
 ### No Mouse, use a keyboard
 It does not work wel because it is a hover state and he doesnt load the second content row while tapping.
 
+### h1 to h6 added in the right way
+
 ### No JS
 **From**
 ```
