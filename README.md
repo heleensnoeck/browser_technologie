@@ -1,4 +1,4 @@
-# Weatherapp
+# Weather app
 
 # For online usage
 http://spotitshopit.com/done
