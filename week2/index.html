@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Web App from Scratch</title>
+		<meta name="description" content="Preformance matters test multiple browsers">
+		<meta name="author" content="Heleen Snoeck">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> 
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+		<link href="css/style.css", rel="stylesheet">
+	</head>
+	<body>
+		<article class="object fit">
+			<h1>Preformance matters</h1>
+			<h2> Object fit element</h2>
+			<p>The objecy-fit property defines how an element responds to the height and width of its content box</p>
+
+			<div class="original-image">
+				<p>original image</p>
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png"> 
+			</div>
+
+			<div class="image">
+			  	<p>object-fit: fill</p>
+				<img class="object-fit_fill" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+			</div>
+
+			<div class="image">
+			  	<p>object-fit: contain</p>
+				<img class="object-fit_contain" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+			</div>
+
+			<div class="image">
+			 	<p>object-fit: cover</p>
+				<img class="object-fit_cover" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+			</div>
+
+			<div class="image">
+			  <p>object-fit: none</p>
+			  <img class="object-fit_none" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+			</div>
+
+			<div class="image">
+			  	<p>object-fit: scale-down</p>
+				<img class="object-fit_scale-down" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+			 </div>
+		</article>
+
+		<article class="object-fit-fallback">
+			<h1>Fallback</h1>
+			<p>The object fit element does not work on: ie 8 till 11 and edge but also on android browsers</p>
+			<p> most developers rely on a polyfill then, but the polyfills where outdated so somebody found de solution with javascript</p>
+
+			<p> Bron:<a href = "https://medium.com/@primozcigler/neat-trick-for-css-object-fit-fallback-on-edge-and-other-browsers-afbc53bbb2c3#.j3t10z5pt" >medium.com</a></p>
+
+			<p>You can also skip the javascript and size the image by hand</p>
+			
+			<div class="image_fallback">
+				<strong>1200x600</strong>
+				<div class="post__image-container">
+					<a href="blogpost.html">
+						<img src="https://unsplash.it/1200/600" class="post__featured-image">
+					</a>
+				</div>
+			</div>
+			
+			<div class="image_fallback">
+				<strong>400x300</strong>
+				<div class="post__image-container">
+					<a href="blogpost.html">
+						<img src="https://unsplash.it/400/300" class="post__featured-image">
+					</a>
+				</div>
+			</div>
+			
+			<div class="image_fallback">
+				<strong>300x400</strong>
+				<div class="post__image-container">
+					<a href="blogpost.html">
+						<img src="https://unsplash.it/300/400" class="post__featured-image">
+					</a>
+				</div>
+			</div>
+			
+			<div class="image_fallback">
+				<strong>100x100</strong>
+				<div class="post__image-container">
+					<a href="blogpost.html">
+						<img src="https://unsplash.it/100/100" class="post__featured-image">
+					</a>
+				</div>
+			</div>
+			
+			<div class="image_fallback">
+				<strong>10x10</strong>
+				<div class="post__image-container">
+					<a href="blogpost.html">
+						<img src="https://unsplash.it/10/10" class="post__featured-image">
+					</a>
+				</div>
+			</div>
+			
+			<div class="image_fallback">
+				<strong>250x250</strong>
+				<div class="post__image-container">
+					<a href="blogpost.html">
+						<img src="https://unsplash.it/250/250" class="post__featured-image">
+					</a>
+				</div>
+			</div>
+			
+			<div class="image_fallback">
+				<strong>500x250</strong>
+				<div class="post__image-container">
+					<a href="blogpost.html">
+						<img src="https://unsplash.it/500/250" class="post__featured-image">
+					</a>
+				</div>
+			</div>
+			
+			<div class="image_fallback">
+				<strong>250x500</strong>
+				<div class="post__image-container">
+					<a href="blogpost.html">
+						<img src="https://unsplash.it/250/500" class="post__featured-image">
+					</a>
+				</div>
+			</div>
+			
+			<div class="image_fallback">
+				<strong>201x600</strong>
+				<div class="post__image-container">
+					<a href="blogpost.html">
+						<img src="https://unsplash.it/201/600" class="post__featured-image">
+					</a>
+				</div>
+			</div>
+		</article>
+
+		<!-- background repeat  -->
+
+		<article class="background-repeat">
+			<h1>background repeat</h1>
+			<div class="backgound-repeat-img"></div>
+
+			<h1>background repeat Fallback</h1>
+			<h2>background repeat word alleen niet in ie8 ondersteund</h2>
+			<div class="backgound-repeat-img-fallback"></div>
+		</article>
+
+		<article class="video-element">
+			<h1>video element met poster tag (afbeelding voordat video start)</h1>
+			<video poster="http://sandbox.thewikies.com/vfe-generator/images/big-buck-bunny_poster.jpg" controls> 
+			<!-- laat een frame zien van de video, en met controls zet je de play/pause etc. buttons op de video -->
+			    <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4">
+			    <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.webm">
+			    <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.ogv">
+			    <track label="Captions" kind="captions" src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.webvtt" srclang="en"/> <!-- het track element zorgt ervoor dat de captation en de video worden gessgroniseerd. De ondertitel word ingeladen in de taal engels.-->
+			</video>
+		</article>
+
+		<article class="video-element-fallback">
+			<h1>video element met poster + afbeelding</h1>
+			<h3>bron: http://stackoverflow.com/questions/14616453/image-placeholder-fallback-for-html5-video </h3>
+
+			<h2>I have set a image on the video as fallback but also provide a link to the original video, so people can download the video</h2>
+			<video poster="http://sandbox.thewikies.com/vfe-generator/images/big-buck-bunny_poster.jpg" controls> 
+			<!-- laat een frame zien van de video, en met controls zet je de play/pause etc. buttons op de video -->
+			    <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4">
+			    <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.webm">
+			    <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.ogv">
+			    <track label="Captions" kind="captions" src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.webvtt" srclang="en"/> <!-- het track element zorgt ervoor dat de captation en de video worden gessgroniseerd. De ondertitel word ingeladen in de taal engels.-->
+			    <img src="/images/product/product-parent-hero.jpg" title="Your browser does not support the <video> tag">
+
+			    <p><a href="fhfiewhfeiw">Link naar video</a></p>
+
+			    <!-- geef een link naar die file toe waar ze hem downloaden -->  
+			</video>
+		</article>	
+		
+		<article class="date">
+			<h1>input type</h1>
+			<label for="deadline">Deadline:</label>
+			<input type="date" name="deadline" id="deadline">
+		</article>
+
+		<article class="title">
+			<h1>input type fallback</h1>
+			<form>
+				<fieldset> <!-- groepeert een aantal form controls vaak met een rand erom heen -->
+					<legend>Contactgegevens:</legend> 	<!-- legende: contains a caption which helps identyfy the purpose of that group of form controls. -->		
+						<label for="naam">Dag</label> <!-- for is voor  -->
+						<input class="inline" type="text" name="naam" id="naam" placeholder="DD" required> <!-- type is voor het type input veld. placeholder is voor  -->
+
+						<label for="bedrijf">Maand</label>
+						<input class="inline" type="text" name="bedrijf" id="bedrijf" placeholder="MM">
+
+						<label for="adres">Jaar</label>
+						<input class="inline" type="text" name="adres" id="adres" placeholder="JJJJ" >
+				</fieldset>
+			</form>
+		</article>
+	
+		
+		<article class="geolocation">
+			<h1>Fallback</h1>
+			<h2>3 ways geolocationfallback</h2> 
+			<p>With error handeling by javascript </br>
+			   Let the user tell where they are by a form </br>
+			   Let the company tell where they are located by adress</p>
+			
+			<h2> Fallback by javascript </h2>
+			<p id="demo">Click the button to get your position.</p>
+
+			<button onclick="getLocation()">Try It</button>
+
+			<div id="mapholder"></div>
+
+			<h2> Fallback by user </h2>
+			<form>
+				<fieldset> <!-- groepeert een aantal form controls vaak met een rand erom heen -->
+					<legend>Contactgegevens:</legend> 	<!-- legende: contains a caption which helps identyfy the purpose of that group of form controls. -->		
+						<label for="naam">Naam</label> <!-- for is voor  -->
+						<input type="text" name="naam" id="naam" placeholder="Naam" required> <!-- type is voor het type input veld. placeholder is voor  -->
+
+						<label for="bedrijf">Bedrijf</label>
+						<input type="text" name="bedrijf" id="bedrijf" placeholder="Bedrijfsnaam">
+
+						<label for="adres">Adres</label>
+						<input type="text" name="adres" id="adres" placeholder="Straatnaam 43" >
+				
+						<label for="postcode">Postcode</label>
+						<input type="text" name="postcode" id="postcode" placeholder="1234AB" required>
+
+						<label for="plaats">Plaats</label>
+						<input type="text" name="plaats" id="plaats" placeholder="plaats">
+			
+						<label for="telefoon">Telefoon</label>
+						<input type="tel" name="telefoon" id="telefoon" placeholder="06-12345678">
+
+						<label for="email">Email</label>
+						<input type="email" name="email" id="email" placeholder="email@voorbeeld.nl" required>		
+				</fieldset>
+				<button type="submit">verzenden</button>
+			</form>
+
+			<div class="adress">
+			<h2>Fallback by business</h2>
+				<p> TamTam Amsterdam </br>
+				   Helicopterstraat 25</br>
+				   1059 CE Amsterdam 
+				</p>	
+			</div>
+		</article>
+		<script src="js/objectfit.js"></script>
+		<script src="js/geolocation.js"></script>
+	</body>
+</html>
