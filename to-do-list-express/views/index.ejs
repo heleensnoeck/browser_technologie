@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Web App from Scratch</title>
+		<meta name="description" content="A web application from scratch">
+		<meta name="author" content="Heleen Snoeck">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> 
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+		<link href="css/style.css", rel="stylesheet">
+	</head>
+	<body>
+	<header>
+			<form class="add" action="/add" method="post">
+				<input class="input-todo" name="item" type="text" placeholder="Your new to-do here..." autofocus>
+				<button id="confirm_new_todo" type="submit" class="btn-new-todo">Add</button>  
+			</form>
+	</header>
+
+	<section class="content">
+		<ul>
+			<% for(var i=0; i<items.length; i++) { %>
+				<li class="todo-item"><%= items[i] %>
+				<form class="change" action="/doing" method="post">
+					<button class="todo-item-doing" name="id" value="<%= i %>" type="submit" class="btn-new-todo">doing</button> 
+				</form>
+				<form class="change" action="/done" method="post">
+					<input type="hidden" name="source" value="items">
+					<button class="todo-item-done" name="id" value="<%= i %>" type="submit" class="btn-new-todo">done</button> 
+				</form>	
+				</li>
+			<% } %>
+		</ul>
+	</section>
+	
+	<section class="doing">
+		<h1>doing</h1>
+		<% for(var i=0; i<doing.length; i++) { %>
+			<form action="/done" method="post" class="doing"><%= doing[i] %>
+				<input type="hidden" name="source" value="doing">
+				<button class="remove-items" name="id" value="<%= i %>" type="submit" class="btn-new-todo">done</button> 
+			</form>
+		<% } %>
+	</section>
+	
+	<section class="done">
+		<h1>done</h1>
+		<% for(var i=0; i<done.length; i++) { %>
+			<%= done[i] %>
+		<% } %>
+	</section>
+
+	<script src="js/script.js"></script>
+	</body>
+</html>
