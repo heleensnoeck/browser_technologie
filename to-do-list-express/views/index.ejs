@@ -2,54 +2,126 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Web App from Scratch</title>
-		<meta name="description" content="A web application from scratch">
+		<title tit>To do list</title tit>
+		<meta name="description" content="To do list">
 		<meta name="author" content="Heleen Snoeck">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> 
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-		<link href="css/style.css", rel="stylesheet">
+		<link rel="stylesheet" href="/stylesheets/style.css">
 	</head>
 	<body>
-	<header>
-			<form class="add" action="/add" method="post">
-				<input class="input-todo" name="item" type="text" placeholder="Your new to-do here..." autofocus>
-				<button id="confirm_new_todo" type="submit" class="btn-new-todo">Add</button>  
-			</form>
-	</header>
 
-	<section class="content">
-		<ul>
-			<% for(var i=0; i<items.length; i++) { %>
-				<li class="todo-item"><%= items[i] %>
-				<form class="change" action="/doing" method="post">
-					<button class="todo-item-doing" name="id" value="<%= i %>" type="submit" class="btn-new-todo">doing</button> 
-				</form>
-				<form class="change" action="/done" method="post">
-					<input type="hidden" name="source" value="items">
-					<button class="todo-item-done" name="id" value="<%= i %>" type="submit" class="btn-new-todo">done</button> 
-				</form>	
-				</li>
-			<% } %>
-		</ul>
-	</section>
-	
-	<section class="doing">
-		<h1>doing</h1>
-		<% for(var i=0; i<doing.length; i++) { %>
-			<form action="/done" method="post" class="doing"><%= doing[i] %>
-				<input type="hidden" name="source" value="doing">
-				<button class="remove-items" name="id" value="<%= i %>" type="submit" class="btn-new-todo">done</button> 
-			</form>
-		<% } %>
-	</section>
-	
-	<section class="done">
-		<h1>done</h1>
-		<% for(var i=0; i<done.length; i++) { %>
-			<%= done[i] %>
-		<% } %>
-	</section>
+	<main>
+		<nav>
+			<header>
+				<h2>Do.Today</h2>
+			</header>
+			<ul class="nav-ul">
+				<li class="nav-li"><h3>Later</h3></li>
+				<li class="nav-li"><h3>Doing</h3></li>
+				<li class="nav-li"><h3>Done</h3></li>
+			</ul>
+		</nav>
+		<section class="left">
 
-	<script src="js/script.js"></script>
+			<form class="search-field" action="/add" method="post">
+				
+				<div class="flex-wrapper">
+					<div>
+						<input class="input-todo" name="item" type="text" placeholder="Your new to-do here..." autofocus>
+					</div>	
+					<div>
+						<button id="add_list" class="search button-add" onsubmit="colors" type="submit" class="btn-new-todo">
+							<figure id="vertical" class="cross"></figure>
+							<figure id="horizontal" class="cross"></figure>
+						</button> 
+					</div>	 
+				</div>
+
+			</form>
+
+			<section class="content">
+
+				<ul>
+					<% for(var i = items.length-1; i > 0; i--) { %>
+						
+						<li id="item-<%= i %>" class="todo-item" draggable="true" ondragstart="drag(event)"><%= items[i] %>
+					
+						<form class="change" action="/done" method="post">
+							<input type="hidden" name="source" value="items">
+							<button class="todo-item-done buttons-input" name="id" value="<%= i %>" type="submit" class="btn-new-todo">
+								<figure class="round round-done"></figure>
+							<!-- 	<figure id="left" class="mark"></figure>
+								<figure id="joe" class="mark"></figure> -->
+							</button> 
+						</form>
+
+
+						<form class="change" action="/doing" method="post">
+							<button class="todo-item-doing buttons-input" name="id" value="<%= i %>" type="submit" class="btn-new-todo"><figure class="round round-doing"></figure>
+							</button> 
+						</form>
+
+
+						<button class="todo-item-doing buttons-input" name="id" value="<%= i %>" type="	submit" class="btn-new-todo"><figure class="round round-later"></figure>
+						</button> 
+
+						</li>
+					<% } %>
+				</ul>
+
+			</section>
+		</section>
+
+		<section class="right">
+			<section class="doing" ondrop="drop(event)" ondragover="allowDrop(event)">
+				
+				<div class="title title-doing">
+					<h1>Doing</h1>
+				</div>
+				
+				<section class="content">
+
+					<ul>
+
+						<% for(var i=0; i<doing.length; i++) { %>
+						<li class="todo-item" draggable="true">
+							<form action="/done" method="post" class="doing"><%= doing[i] %> <!-- hier haalt hij de tekst waarde vandaan. -->
+								<input type="hidden" name="source" value="doing">
+								<button class="remove-items button-remove todo-item-doing buttons-input" name="id" value="<%= i %>" type="submit" class="btn-new-todo">
+<!-- 									<figure id="left" class="mark"></figure>
+									<figure id="joe" class="mark"></figure> -->
+									<figure class="round round-done"></figure>
+								</button> 
+							</form>
+							</li>
+						<% } %>
+					</ul>
+
+				</section>
+
+			</section>
+		
+			<section class="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+				<div class="title title-done">
+					<h1>Done</h1>
+				</div>	
+				
+				<section class="content">
+					<ul>
+						<% for(var i=0; i<done.length; i++) { %>
+						<li class="todo-item">
+						<%= done[i] %>
+						<% } %>
+						</li>
+					</ul>
+				</section>
+	</main>
+	    <script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js'></script>
+	<!--     <script src='http://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/DrawSVGPlugin.js?r=11'></script>
+	 -->    <script src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin.min.js"></script>
+	<script src="/javascripts/script.js"></script>
+	<script src="/javascripts/animations.js"></script>
 	</body>
 </html>

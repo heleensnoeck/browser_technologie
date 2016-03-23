@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var items = ['kaas', 'worst'];
+var items = [];
 var doing = [];
 var done = [];
 
@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/add', function(req, res, next) {
+  
   items.push(req.body.item);
   res.redirect('/');
 });

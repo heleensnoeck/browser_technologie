@@ -88,11 +88,15 @@ li {
 .doing {
 	height: 50%;
 	background-color: red;
+	top: -1.2em;
+	position: relative;
 }
 
 .done {
 	height: 50%;
-	background-color: pink;
+	background-color: red;
+	top: -1.2em;
+	position: relative;
 }
 
 .doing.over, .done.over {
