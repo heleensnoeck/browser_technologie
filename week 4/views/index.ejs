@@ -11,27 +11,38 @@
 	</head>
 	<body>
 
-	<main>
+		<main>
+
 		<nav>
-			<header>
-				<h2>Do.Today</h2>
-			</header>
-			<ul class="nav-ul">
-				<li class="nav-li"><h3>Later</h3></li>
-				<li class="nav-li"><h3>Doing</h3></li>
-				<li class="nav-li"><h3>Done</h3></li>
-			</ul>
+			<h4>
+				<span>T</span>
+				<span>o</span>
+				<span>.</span>
+				<span>D</span>
+				<span>a</span>
+				<span>y</span>
+			</h4>
+			
+			<a href="#closeNavNow">click me to close</a>
+			<div class="nav-ul">
+				<span class="nav-li"><h3>Later</h3></span>
+				<span class="nav-li"><h3>Doing</h3></span>
+				<span class="nav-li"><h3>Done</h3></span>
+
+			</div>
+			<footer>Heleen Snoeck</footer>
 		</nav>
+
 		<section class="left">
 
-			<form class="search-field" action="/add" method="post">
+			<form class="search-field" action="/add" method="post" alt="search field">
 				
 				<div class="flex-wrapper">
 					<div>
-						<input class="input-todo" name="item" type="text" placeholder="Your new to-do here..." autofocus>
+						<input class="input-search" name="item" type="text" placeholder="Your new to-do here..." alt="Put your new to-do here..." autofocus>
 					</div>	
 					<div>
-						<button id="add_list" class="search button-add" onsubmit="colors" type="submit" class="btn-new-todo">
+						<button id="add_list" class="search button-add" onsubmit="colors" type="submit" class="btn-new-todo" alt="add item">
 							<figure id="vertical" class="cross"></figure>
 							<figure id="horizontal" class="cross"></figure>
 						</button> 
@@ -49,21 +60,18 @@
 					
 						<form class="change" action="/done" method="post">
 							<input type="hidden" name="source" value="items">
-							<button class="todo-item-done buttons-input" name="id" value="<%= i %>" type="submit" class="btn-new-todo">
-								<figure class="round round-done"></figure>
-							<!-- 	<figure id="left" class="mark"></figure>
-								<figure id="joe" class="mark"></figure> -->
+							<button class="frame icon vink vink-bg-color" name="id" value="<%= i %>" type="submit" class="btn-new-todo" alt="place item under done">
 							</button> 
 						</form>
 
 
 						<form class="change" action="/doing" method="post">
-							<button class="todo-item-doing buttons-input" name="id" value="<%= i %>" type="submit" class="btn-new-todo"><figure class="round round-doing"></figure>
+							<button class="frame icon settings settings-bg-color" name="id" value="<%= i %>" type="submit" class="btn-new-todo" alt="place item under bussy">
 							</button> 
 						</form>
 
 
-						<button class="todo-item-doing buttons-input" name="id" value="<%= i %>" type="	submit" class="btn-new-todo"><figure class="round round-later"></figure>
+						<button class="frame icon arrow arrow-bg-color" name="id" value="<%= i %>" type="submit" class="btn-new-todo" alt="place item under later">
 						</button> 
 
 						</li>
@@ -74,7 +82,7 @@
 		</section>
 
 		<section class="right">
-			<section class="doing" ondrop="drop(event)" ondragover="allowDrop(event)">
+			<section class="container-doing" ondrop="drop(event)" ondragover="allowDrop(event)">
 				
 				<div class="title title-doing">
 					<h1>Doing</h1>
@@ -88,11 +96,10 @@
 						<li class="todo-item" draggable="true">
 							<form action="/done" method="post" class="doing"><%= doing[i] %> <!-- hier haalt hij de tekst waarde vandaan. -->
 								<input type="hidden" name="source" value="doing">
-								<button class="remove-items button-remove todo-item-doing buttons-input" name="id" value="<%= i %>" type="submit" class="btn-new-todo">
-<!-- 									<figure id="left" class="mark"></figure>
-									<figure id="joe" class="mark"></figure> -->
-									<figure class="round round-done"></figure>
-								</button> 
+								
+								<button class="frame icon vink vink-bg-color icontwee" name="id" value="<%= i %>" type="submit" class="btn-new-todo">
+								</button>
+
 							</form>
 							</li>
 						<% } %>
@@ -102,7 +109,7 @@
 
 			</section>
 		
-			<section class="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+			<section class="container-done" ondrop="drop(event)" ondragover="allowDrop(event)">
 
 				<div class="title title-done">
 					<h1>Done</h1>
