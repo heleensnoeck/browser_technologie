@@ -5,130 +5,136 @@
 		<title tit>To do list</title tit>
 		<meta name="description" content="To do list">
 		<meta name="author" content="Heleen Snoeck">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> 
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/> 
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="/stylesheets/style.css">
 	</head>
 	<body>
 
 		<main>
-
-		<nav>
-			<h4>
-				<span>T</span>
-				<span>o</span>
-				<span>.</span>
-				<span>D</span>
-				<span>a</span>
-				<span>y</span>
-			</h4>
-			
-			<a href="#closeNavNow">click me to close</a>
-			<div class="nav-ul">
-				<span class="nav-li"><h3>Later</h3></span>
-				<span class="nav-li"><h3>Doing</h3></span>
-				<span class="nav-li"><h3>Done</h3></span>
-
-			</div>
-			<footer>Heleen Snoeck</footer>
-		</nav>
-
-		<section class="left">
-
-			<form class="search-field" action="/add" method="post" alt="search field">
+			<nav>
+				<h1 class="logo">
+					<span>T</span>
+					<span>o</span>
+					<span>.</span>
+					<span>D</span>
+					<span>a</span>
+					<span>y</span>
+				</h1>
 				
-				<div class="flex-wrapper">
-					<div>
-						<input class="input-search" name="item" type="text" placeholder="Your new to-do here..." alt="Put your new to-do here..." autofocus>
-					</div>	
-					<div>
-						<button id="add_list" class="search button-add" onsubmit="colors" type="submit" class="btn-new-todo" alt="add item">
-							<figure id="vertical" class="cross"></figure>
-							<figure id="horizontal" class="cross"></figure>
-						</button> 
-					</div>	 
+				<div class="nav-ul">
+					<span class="nav-li"><h3>Later</h3></span>
+					<span class="nav-li"><h3>Doing</h3></span>
+					<span class="nav-li"><h3>Done</h3></span>
 				</div>
+				<footer>Heleen Snoeck</footer>
+			</nav>
 
-			</form>
-
-			<section class="content">
-
-				<ul>
-					<% for(var i = items.length-1; i > 0; i--) { %>
-						
-						<li id="item-<%= i %>" class="todo-item" draggable="true" ondragstart="drag(event)"><%= items[i] %>
+			<section class="left">
+				<form class="search-field" action="/add" method="post" alt="search field">
 					
-						<form class="change" action="/done" method="post">
-							<input type="hidden" name="source" value="items">
-							<button class="frame icon vink vink-bg-color" name="id" value="<%= i %>" type="submit" class="btn-new-todo" alt="place item under done">
+					<div class="flex-wrapper">
+						<div>
+							<input class="input-search" name="item" type="text" placeholder="Your new to-do here..." alt="Put your new to-do here..." autofocus>
+						</div>	
+						<div>
+							<button id="add_list" class="search button-add" onsubmit="colors" type="submit" class="btn-new-todo" alt="add item">
+								<figure id="vertical" class="cross"></figure>
+								<figure id="horizontal" class="cross"></figure>
 							</button> 
-						</form>
+						</div>	 
+					</div>
+				</form>
 
-
-						<form class="change" action="/doing" method="post">
-							<button class="frame icon settings settings-bg-color" name="id" value="<%= i %>" type="submit" class="btn-new-todo" alt="place item under bussy">
-							</button> 
-						</form>
-
-
-						<button class="frame icon arrow arrow-bg-color" name="id" value="<%= i %>" type="submit" class="btn-new-todo" alt="place item under later">
-						</button> 
-
-						</li>
-					<% } %>
-				</ul>
-
-			</section>
-		</section>
-
-		<section class="right">
-			<section class="container-doing" ondrop="drop(event)" ondragover="allowDrop(event)">
-				
-				<div class="title title-doing">
-					<h1>Doing</h1>
-				</div>
-				
 				<section class="content">
 
 					<ul>
-
-						<% for(var i=0; i<doing.length; i++) { %>
-						<li class="todo-item" draggable="true">
-							<form action="/done" method="post" class="doing"><%= doing[i] %> <!-- hier haalt hij de tekst waarde vandaan. -->
-								<input type="hidden" name="source" value="doing">
-								
-								<button class="frame icon vink vink-bg-color icontwee" name="id" value="<%= i %>" type="submit" class="btn-new-todo">
-								</button>
-
+						<% for(var i = items.length-1; i > 0; i--) { %>
+							
+							<li id="item-<%= i %>" class="todo-item" draggable="true" ondragstart="drag(event)"><%= items[i] %>
+						
+							<form class="change" action="/done" method="post">
+								<input type="hidden" name="source" value="items">
+								<button class="frame icon vink vink-bg-color" name="id" value="<%= i %>" type="submit" class="btn-new-todo" alt="place item under done">
+								</button> 
 							</form>
+
+
+							<form class="change" action="/doing" method="post">
+								<button class="frame icon settings settings-bg-color" name="id" value="<%= i %>" type="submit" class="btn-new-todo" alt="place item under bussy">
+								</button> 
+							</form>
+
+
+							<button class="frame icon arrow arrow-bg-color" name="id" value="<%= i %>" type="submit" class="btn-new-todo" alt="place item under later">
+							</button> 
+
 							</li>
 						<% } %>
 					</ul>
 
 				</section>
-
 			</section>
-		
-			<section class="container-done" ondrop="drop(event)" ondragover="allowDrop(event)">
 
-				<div class="title title-done">
-					<h1>Done</h1>
-				</div>	
-				
-				<section class="content">
-					<ul>
-						<% for(var i=0; i<done.length; i++) { %>
-						<li class="todo-item">
-						<%= done[i] %>
-						<% } %>
-						</li>
-					</ul>
+			<section class="right">
+				<section class="container-doing" ondrop="drop(event)" ondragover="allowDrop(event)">
+					
+					<div class="title title-doing">
+						<h1>Doing</h1>
+					</div>
+					
+					<section class="content">
+
+						<ul>
+
+							<% for(var i=0; i<doing.length; i++) { %>
+							<li class="todo-item" draggable="true">
+								<form action="/done" method="post" class="doing"><%= doing[i] %> <!-- hier haalt hij de tekst waarde vandaan. -->
+									<input type="hidden" name="source" value="doing">
+									
+									<button class="frame icon vink vink-bg-color icontwee" name="id" value="<%= i %>" type="submit" class="btn-new-todo">
+									</button>
+
+								</form>
+								</li>
+							<% } %>
+						</ul>
+
+					</section>
+
 				</section>
+			
+				<section class="container-done" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+					<div class="title title-done">
+						<h1>Done</h1>
+					</div>	
+					
+					<section class="content">
+						<ul>
+							<% for(var i=0; i<done.length; i++) { %>
+							<li class="todo-item">
+							<%= done[i] %>
+							<% } %>
+							</li>
+						</ul>
+					</section>
 	</main>
+		<script>
+			// https://www.youtube.com/watch?v=zbMJtxDD-4I
+			var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window)
+			var js; 
+
+			if(cutsTheMustard) {
+				js = document.createElement('script');
+				js.src = '/javascripts/script.js';
+				js.async = true; 
+				document.querySelector('script').parentNode.appendChild(js);
+			}
+		</script>
 	    <script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js'></script>
-	<!--     <script src='http://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/DrawSVGPlugin.js?r=11'></script>
-	 -->    <script src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin.min.js"></script>
-	<script src="/javascripts/script.js"></script>
-	<script src="/javascripts/animations.js"></script>
+		<script src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin.min.js"></script>
+<!-- 		<script src="/javascripts/script.js"></script>
+ -->		<script src="/javascripts/animations.js"></script>
 	</body>
 </html>
