@@ -80,6 +80,8 @@ If your browser loads CSS, you will get some nice colors, icons, positions and f
 
 ### h1 to h6 added in the right way
 
+
+### Js only loads in when the browser sees a querySelector & 'addEventListener' in the window
 ```
 **From**
 
