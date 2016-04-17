@@ -102,7 +102,7 @@ script.js
 		</script>
 ```
 
-Javascript rendering on the server. 
+### Javascript rendering on the server.
 Drag and drop will be replaced for clicks and by each click a item wil be added to a certaine list. 
 
 
