@@ -52,7 +52,7 @@ With Flexbox
 ![alt tag](https://github.com/heleensnoeck/browser_technologie/blob/master/week%204/screenshots1/Schermafbeelding%202016-04-17%20om%2012.11.12.png) 
  
 
-# Feathers css i tought about-> 
+# Features css i thought about-> 
 
 # Enhancements
 ### Colors
