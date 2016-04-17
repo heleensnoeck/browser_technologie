@@ -7,7 +7,7 @@ Not i.v.m node
 First i had to make a node set-up before i could start building some HTML. Krijn told me if i build the site with node it would work without javascript. (I could replace the drag and drop then by clicks)
 
 The i build the HTML but with the html came also some javascript, otherwise it would not work without javascript. Example:
-```
+
 <section class="content">
 
 				<ul>
@@ -37,22 +37,21 @@ The i build the HTML but with the html came also some javascript, otherwise it w
 
 			</section>
 		</section>
-```
+
 
  
-After the html and javascript was build-up, i could start working on the css. (I know it isnt the right way to build up but it would not work otherwise.)
+###After the html and javascript was build-up, i could start working on the css. (I know it isnt the right way to build up but it would not work otherwise.)
  
-# Feathers html & css 
+# Featers html & css 
 If your browser loads CSS, you will get some nice colors, icons, positions and fonts. The enhancement in the CSS is the alignment with flexbox. Doesn't your browser support flexbox, then you dont have a responsive site.
 
-with and without flexbox
+###with and without flexbox
 ![alt tag](https://github.com/heleensnoeck/browser_technologie/blob/master/week%204/screenshots1/Schermafbeelding%202016-04-17%20om%2012.09.10.png)
 
-With Flexbox
+###With Flexbox
 ![alt tag](https://github.com/heleensnoeck/browser_technologie/blob/master/week%204/screenshots1/Schermafbeelding%202016-04-17%20om%2012.11.12.png) 
- 
 
-# Features css i thought about-> 
+# Featers css i thought about-> 
 
 # Enhancements
 ### Colors
@@ -63,9 +62,8 @@ With Flexbox
 
 # black and white balance checked 
 
-### Images -> all costum made css icons
+## Images -> all costum made css icons
 
-```
 
 ### ScreenReader add alt attribute
 **From**
@@ -77,20 +75,20 @@ With Flexbox
 	<input type="text" id="place" placeholder="type a place" required="true" alt="type a todo item">
 ```
 
+
 ### No Mouse, use a keyboard (focus)
 
 ### h1 to h6 added in the right way
 
-### No JS
+```
 **From**
 
 script.js
 
 **To**
 
-```
-<script>
-			var cutsTheMustard = ('querySelector' in window && 'addEventListener' in window)
+
+	var cutsTheMustard = ('querySelector' in window && 'addEventListener' in window)
 			var js; 
 
 			if(cutsTheMustard) {
@@ -99,14 +97,14 @@ script.js
 				js.async = true; 
 				document.querySelector('script').parentNode.appendChild(js);
 			}
-		</script>
 ```
 
-### Javascript rendering on the server.
+
+##Javascript rendering on the server. 
 Drag and drop will be replaced for clicks and by each click a item wil be added to a certaine list. 
 
 
-### Feedback Krijn
+## Feedback Krijn
 I also had some points of inprovement with my code -> See issues resolved:
 https://github.com/heleensnoeck/browser_technologie/issues?q=is%3Aissue+is%3Aclosed
 
